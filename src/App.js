@@ -7,7 +7,7 @@ import Footer from "./components/Footer";
 import SearchForm from "./components/SearchForm";
 import ParcelList from "./components/ParcelList";
 import Results from "./components/Results";
-
+// const Aftership = require('aftership')('c3f426dd-9ded-4095-9180-69e8301f4d27');
 class App extends Component {
   state = {
     parcels: ["20450182437180", "20450123167687"],

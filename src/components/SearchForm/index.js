@@ -23,7 +23,7 @@ export default class SearchForm extends Component {
             name=""
             placeholder="Enter parcel number"
             onChange={this.handleChange}
-            pattern="\d{14}"
+            pattern="^\d{14}"
             title="14 numbers"
           />
           <button className="search__btn">Search</button>
