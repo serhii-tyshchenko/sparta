@@ -1,22 +1,97 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-size: 16px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  max-width: 960px;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 1rem;
+  background: lightgray;
+  box-shadow: 2px 2px 10px 0 black;
 }
-
-.App-link {
-  color: #09d3ac;
+.header {
+  padding: 1rem 0;
+  text-align: center;
+  background: lightblue;
+}
+.header__logo {
+}
+main {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+.search {
+  display: flex;
+  justify-content: center;
+  padding: 1rem 0;
+  background: lightcoral;
+}
+.search__form {
+  display: flex;
+}
+.search__input {
+  padding: 0.5em;
+  font-size: 1rem;
+}
+.search__btn {
+  padding: 0.5em 1em;
+  font-size: 1rem;
+  border: none;
+  background: none;
+  background: lightblue;
+  cursor: pointer;
+}
+.parcels {
+  background: lightcyan;
+  padding: 0.5rem;
+}
+.parcels__list {
+  display: flex;
+  list-style-type: none;
+}
+.parcel {
+  display: flex;
+}
+.parcel + .parcel {
+  margin-left: 1rem;
+}
+.parcel__number {
+  padding: 0.25em 1em;
+  background: lightskyblue;
+  border-radius: 5px 0 0 5px;
+}
+.parcel__number:hover {
+  cursor: pointer;
+  font-weight: bold;
+}
+.parcel__remove {
+  background: none;
+  border: none;
+  font-weight: bold;
+  border: 1px solid lightskyblue;
+  padding: 0 0.5em;
+  cursor: pointer;
+  opacity: 0.5;
+  border-radius: 0 5px 5px 0;
+}
+.parcel__remove:hover {
+  opacity: 1;
+}
+.results {
+  padding: 1em;
+  background: lightseagreen;
+  flex-grow: 1;
+}
+footer {
+  padding: 1em;
+  background: lightcyan;
 }

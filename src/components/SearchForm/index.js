@@ -14,16 +14,19 @@ export default class SearchForm extends Component {
   };
   render() {
     return (
-      <div>
-        SearchForm
-        <form onSubmit={this.handleSubmit}>
+      <div className="search">
+        <form className="search__form" onSubmit={this.handleSubmit}>
           <input
+            className="search__input"
             value={this.state.query}
             type="text"
             name=""
+            placeholder="Enter parcel number"
             onChange={this.handleChange}
+            pattern="\d{14}"
+            title="14 numbers"
           />
-          <button>Search</button>
+          <button className="search__btn">Search</button>
         </form>
       </div>
     );

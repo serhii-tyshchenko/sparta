@@ -2,6 +2,10 @@ import React, { Component } from "react";
 
 export default class Header extends Component {
   render() {
-    return <div>Header</div>;
+    return (
+      <header className="header">
+        <h2 className="header__logo">Simple Parcel Tracking App</h2>
+      </header>
+    );
   }
 }

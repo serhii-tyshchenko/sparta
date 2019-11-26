@@ -15,14 +15,17 @@ class App extends Component {
   };
   // 20450182437180
   //0500059428732
+
   componentDidMount() {
     localStorage.getItem("parcelList")
       ? this.setState(JSON.parse(localStorage.getItem("parcelList")))
       : this.setState({ parcels: [], responseText: "" });
   }
+
   componentDidUpdate() {
     localStorage.setItem("parcelList", JSON.stringify(this.state));
   }
+
   searchParcel = query => {
     if (this.state.parcels.includes(query)) return;
     axios
@@ -48,13 +51,48 @@ class App extends Component {
       })
       .catch(error => console.log(error));
   };
+  removeParcel = id => {
+    this.setState({
+      parcels: [...this.state.parcels.filter(item => item !== id)]
+    });
+  };
+  getParcelStatus = number => {
+    axios
+      .post("https://api.novaposhta.ua/v2.0/json/", {
+        apiKey: "",
+        modelName: "TrackingDocument",
+        calledMethod: "getStatusDocuments",
+        methodProperties: {
+          Documents: [
+            {
+              DocumentNumber: number,
+              Phone: ""
+            }
+          ]
+        }
+      })
+      .then(response => {
+        const responseText = response.data.data[0].Status;
+        this.setState({
+          responseText: responseText
+        });
+      })
+      .catch(error => console.log(error));
+  };
+
   render() {
     return (
       <div className="App">
         <Header />
-        <SearchForm submitForm={this.searchParcel} />
-        <ParcelList parcels={this.state.parcels} />
-        <Results parcelStatus={this.state.responseText} />
+        <main>
+          <SearchForm submitForm={this.searchParcel} />
+          <ParcelList
+            getParcelStatus={this.getParcelStatus}
+            removeParcel={this.removeParcel}
+            parcels={this.state.parcels}
+          />
+          <Results parcelStatus={this.state.responseText} />
+        </main>
         <Footer />
       </div>
     );
