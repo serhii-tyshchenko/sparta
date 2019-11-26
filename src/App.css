@@ -58,15 +58,14 @@ main {
 .parcels__list {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-around;
   list-style-type: none;
 }
 .parcel {
   display: flex;
+  margin: 0.5rem;
 }
-.parcel + .parcel {
-  margin-left: 1rem;
-}
+
 .parcel__number {
   padding: 0.25em 1em;
   border-radius: 5px 0 0 5px;
