@@ -8,11 +8,13 @@ export default class ParcelListItem extends Component {
         <div
           onClick={this.props.getParcelStatus.bind(this, id)}
           className="parcel__number"
+          title="Click to get parcel status"
         >
           {this.props.parcel}
         </div>
         <button
           onClick={this.props.removeParcel.bind(this, id)}
+          title="Remove parcel"
           className="parcel__remove"
         >
           &#215;
