@@ -26,7 +26,7 @@ export default class SearchForm extends Component {
             pattern="^\d{14}"
             title="14 numbers"
           />
-          <button className="search__btn">Search</button>
+          <button className="search__btn">Track</button>
         </form>
       </div>
     );

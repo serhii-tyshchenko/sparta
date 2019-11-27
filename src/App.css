@@ -6,6 +6,7 @@
 body {
   font-size: 16px;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: rgb(244, 246, 248);
 }
 .App {
   display: flex;
@@ -14,13 +15,15 @@ body {
   min-height: 100vh;
   margin: 0 auto;
   padding: 1rem;
-  /* background: lightgray; */
-  box-shadow: 2px 2px 10px 0 black;
+  background: white;
+  box-shadow: 0 0 0 1px rgba(63, 63, 68, 0.05),
+    0 1px 3px 0 rgba(63, 63, 68, 0.15);
 }
 .header {
   padding: 1rem 0;
   text-align: center;
-  background: lightcyan;
+  background: #052b3c;
+  color: white;
 }
 .header__logo {
 }
@@ -34,7 +37,6 @@ main {
   flex-wrap: wrap;
   justify-content: center;
   padding: 1rem 0;
-  /* background: lightcoral; */
 }
 .search__form {
   display: flex;
@@ -42,14 +44,25 @@ main {
 .search__input {
   padding: 0.5em;
   font-size: 1rem;
+  border: 2px solid #bdc3c7;
+  color: #95a5a6;
+  border-radius: 4px;
+  margin-right: 5px;
 }
 .search__btn {
   padding: 0.5em 1em;
   font-size: 1rem;
   border: none;
   background: none;
-  background: lightblue;
+  color: white;
+  border: 2px solid #f39c12;
+  background-color: #f39c12;
+  border-radius: 4px;
   cursor: pointer;
+}
+.search__btn:hover {
+  border-color: #f5b043;
+  background-color: #f5b043;
 }
 .parcels {
   /* background: lightcyan; */
@@ -97,5 +110,4 @@ main {
 }
 footer {
   padding: 1em;
-  background: lightcyan;
 }
