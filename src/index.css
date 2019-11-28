@@ -1,13 +1,122 @@
-body {
+* {
+  box-sizing: border-box;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+}
+body {
+  font-size: 16px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: rgb(244, 246, 248);
+}
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.wrapper {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+header {
+  background: #052b3c;
+}
+.header {
+  padding: 1rem 0;
+  color: white;
+  text-align: center;
+}
+.header__logo {
+}
+main {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+.search {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 1rem 0;
+}
+.search__form {
+  display: flex;
+}
+.search__input {
+  margin-right: 5px;
+  padding: 0.5em;
+  color: #95a5a6;
+  font-size: 1rem;
+  border: 2px solid #bdc3c7;
+  border-radius: 4px;
+}
+.search__input:focus {
+  color: #555;
+  border-color: #3498db;
+}
+.search__btn {
+  padding: 0.5em 1em;
+  color: white;
+  font-size: 1rem;
+  border: none;
+  border: 2px solid #f39c12;
+  border-radius: 4px;
+  background: none;
+  background-color: #f39c12;
+  cursor: pointer;
+}
+.search__btn:hover {
+  border-color: #f5b043;
+  background-color: #f5b043;
+}
+.parcels {
+  padding: 0.5rem;
+}
+.parcels__list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  list-style-type: none;
+}
+.parcel {
+  /* display: flex; */
+  margin: 0.5rem;
+  background: #fafbfc;
+  border-radius: 3px;
+  box-shadow: 0 0 0 1px rgba(63, 63, 68, 0.05),
+    0 1px 3px 0 rgba(63, 63, 68, 0.15);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+.parcel__number {
+  font-weight: bold;
+}
+.parcel__header {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem;
+  background-color: rgba(0, 0, 0, 0.03);
+}
+.parcel__controls {
+  display: flex;
+}
+.parcel__btn {
+  padding: 0 0.5em;
+  font-weight: bold;
+  border: none;
+  background: none;
+  cursor: pointer;
+  opacity: 0.5;
+}
+.parcel__btn:hover {
+  opacity: 1;
+}
+.parcel__details {
+  padding: 1rem;
+}
+.results {
+  flex-grow: 1;
+  padding: 1em;
+}
+footer {
+  background: #fafbfc;
 }

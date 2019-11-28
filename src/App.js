@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import axios from "axios";
-import "./App.css";
 
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -89,7 +88,7 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <main>
+        <main className="wrapper">
           <SearchForm submitForm={this.searchParcel} />
           <ParcelList
             getParcelStatus={this.getParcelStatus}
