@@ -1,20 +1,41 @@
 import React, { Component } from 'react';
 import ColorPicker from '../../ColorPicker';
+import { GithubPicker } from 'react-color';
 class ParcelListItem extends Component {
     state = {
         title: this.props.parcel.title || 'unknown',
-        color: this.props.parcel.color || '#fff'
+        color: this.props.parcel.color || '#fff',
+        displayColorPicker: false
     };
     editTitle = e => {
         this.setState({ title: e.target.value });
     };
-    setColor = e => {
-        console.log(e);
+    handleChange = color => {
+        this.setState({ color: Object.values(color.hex).join('') });
+    };
+    handleClick = () => {
+        this.setState({ displayColorPicker: !this.state.displayColorPicker });
+    };
+
+    handleClose = () => {
+        this.setState({ displayColorPicker: false });
     };
     render() {
-        const { number, status } = this.props.parcel;
+        const { number, status, date } = this.props.parcel;
         const title = this.state.title;
         const color = this.state.color;
+        console.log(color);
+        const popover = {
+            position: 'absolute',
+            zIndex: '2'
+        };
+        const cover = {
+            position: 'fixed',
+            top: '0px',
+            right: '0px',
+            bottom: '0px',
+            left: '0px'
+        };
 
         return (
             <li
@@ -40,7 +61,19 @@ class ParcelListItem extends Component {
                         >
                             edit
                         </button>
-                        <ColorPicker />
+                        <button
+                            className="parcel__btn"
+                            onClick={this.handleClick}
+                        >
+                            c
+                            {this.state.displayColorPicker ? (
+                                <GithubPicker
+                                    color={this.state.color}
+                                    onChange={this.handleChange}
+                                />
+                            ) : null}
+                        </button>
+
                         <button
                             onClick={this.props.removeParcel.bind(this, number)}
                             title="Remove parcel"
@@ -58,7 +91,9 @@ class ParcelListItem extends Component {
                     >
                         {number}
                     </div>
-                    <div className="parcel__status">{status}</div>
+                    <div className="parcel__status">
+                        {date} : {status}
+                    </div>
                 </div>
             </li>
         );

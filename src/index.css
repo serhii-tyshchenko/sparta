@@ -103,11 +103,11 @@ main {
     justify-content: space-between;
     padding: 0.5rem;
     background-color: rgba(0, 0, 0, 0.1);
-    /* background-color: rgba(0, 0, 0, 0.03); */
 }
 .parcel__controls {
     display: flex;
     align-items: center;
+    position: relative;
 }
 .parcel__btn {
     padding: 0 0.5em;

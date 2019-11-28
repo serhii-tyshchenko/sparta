@@ -50,7 +50,8 @@ class App extends Component {
             citySender: data.CitySender,
             cityRecipient: data.CityRecipient,
             payer: data.PayerType,
-            status: data.Status
+            status: data.Status,
+            date: data.ActualDeliveryDate || new Date().toLocaleString()
         };
     };
     editParcelTitle = (number, title) => {
@@ -84,12 +85,9 @@ class App extends Component {
         }
         this.getData(number)
             .then(response => {
-                const newParcel = {
-                    number: number,
-                    title: 'untitled',
-                    color: 'white',
-                    status: this.formatResponse(response).status
-                };
+                const newParcel = this.formatResponse(response);
+                newParcel.title = 'untitled';
+                newParcel.color = 'white';
                 this.setState({
                     parcels: [...this.state.parcels, newParcel]
                 });
