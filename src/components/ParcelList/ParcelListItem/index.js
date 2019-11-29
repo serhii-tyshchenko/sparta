@@ -11,7 +11,10 @@ class ParcelListItem extends Component {
         this.setState({ title: e.target.value });
     };
     handleChange = color => {
-        this.setState({ color: Object.values(color.hex).join('') });
+        const newColor = Object.values(color.hex).join('');
+        const number = this.props.parcel.number;
+        this.setState({ color: newColor });
+        this.props.setParcelColor(number, newColor);
     };
     handleClick = () => {
         this.setState({ displayColorPicker: !this.state.displayColorPicker });
@@ -24,7 +27,6 @@ class ParcelListItem extends Component {
         const { number, status, date } = this.props.parcel;
         const title = this.state.title;
         const color = this.state.color;
-        console.log(color);
         const popover = {
             position: 'absolute',
             zIndex: '2'
@@ -65,7 +67,7 @@ class ParcelListItem extends Component {
                             className="parcel__btn"
                             onClick={this.handleClick}
                         >
-                            c
+                            color
                             {this.state.displayColorPicker ? (
                                 <GithubPicker
                                     color={this.state.color}
@@ -79,7 +81,7 @@ class ParcelListItem extends Component {
                             title="Remove parcel"
                             className="parcel__btn parcel__remove"
                         >
-                            &#215;
+                            remove
                         </button>
                     </div>
                 </div>

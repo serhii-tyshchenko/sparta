@@ -65,7 +65,6 @@ class App extends Component {
         });
     };
     setParcelColor = (number, color) => {
-        console.log(color);
         this.setState({
             parcels: this.state.parcels.map(parcel => {
                 if (parcel.number === number) {
