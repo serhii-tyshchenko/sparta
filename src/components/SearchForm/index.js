@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 
-export default class SearchForm extends Component {
+class SearchForm extends Component {
     state = {
-        query: ''
+        number: ''
     };
     handleChange = e => {
-        this.setState({ query: e.target.value });
+        this.setState({ number: e.target.value });
     };
     handleSubmit = e => {
         e.preventDefault();
-        this.props.submitForm(this.state.query);
-        this.setState({ query: '' });
+        this.props.addParcel(this.state.number);
+        this.setState({ number: '' });
     };
     render() {
         return (
@@ -18,7 +18,7 @@ export default class SearchForm extends Component {
                 <form className="search__form" onSubmit={this.handleSubmit}>
                     <input
                         className="search__input"
-                        value={this.state.query}
+                        value={this.state.number}
                         type="text"
                         name=""
                         placeholder="Enter parcel number"
@@ -32,3 +32,5 @@ export default class SearchForm extends Component {
         );
     }
 }
+
+export default SearchForm;

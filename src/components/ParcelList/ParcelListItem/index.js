@@ -7,14 +7,14 @@ class ParcelListItem extends Component {
         color: this.props.parcel.color || '#fff',
         displayColorPicker: false
     };
-    editTitle = e => {
+    handleTitleChange = e => {
         this.setState({ title: e.target.value });
     };
-    handleChange = color => {
+    handleColorChange = color => {
         const newColor = Object.values(color.hex).join('');
         const number = this.props.parcel.number;
         this.setState({ color: newColor });
-        this.props.setParcelColor(number, newColor);
+        this.props.editParcel(number, 'color', newColor);
     };
     handleClick = () => {
         this.setState({ displayColorPicker: !this.state.displayColorPicker });
@@ -49,15 +49,16 @@ class ParcelListItem extends Component {
                         type="text"
                         value={this.state.title}
                         className="parcel__title"
-                        onChange={this.editTitle}
+                        onChange={this.handleTitleChange}
                     />
                     <div className="parcel__controls">
                         <button
                             title="Edit title"
                             className="parcel__btn parcel__edit"
-                            onClick={this.props.editParcelTitle.bind(
+                            onClick={this.props.editParcel.bind(
                                 this,
                                 number,
+                                'title',
                                 title
                             )}
                         >
@@ -71,7 +72,7 @@ class ParcelListItem extends Component {
                             {this.state.displayColorPicker ? (
                                 <GithubPicker
                                     color={this.state.color}
-                                    onChange={this.handleChange}
+                                    onChange={this.handleColorChange}
                                 />
                             ) : null}
                         </button>
@@ -101,4 +102,5 @@ class ParcelListItem extends Component {
         );
     }
 }
+
 export default ParcelListItem;

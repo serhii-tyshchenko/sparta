@@ -80,7 +80,7 @@ main {
     list-style-type: none;
 }
 .parcel {
-    width: 240px;
+    max-width: 320px;
     /* display: flex; */
     margin: 1rem 0.5rem;
     border-radius: 3px;
