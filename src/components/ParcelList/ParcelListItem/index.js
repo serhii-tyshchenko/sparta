@@ -10,6 +10,15 @@ class ParcelListItem extends Component {
     handleTitleChange = e => {
         this.setState({ title: e.target.value });
     };
+    handleKeyDown = e => {
+        if (e.key === 'Enter') {
+            this.props.editParcel(
+                this.props.parcel.number,
+                'title',
+                e.target.value
+            );
+        }
+    };
     handleColorChange = color => {
         const newColor = Object.values(color.hex).join('');
         const number = this.props.parcel.number;
@@ -24,7 +33,14 @@ class ParcelListItem extends Component {
         this.setState({ displayColorPicker: false });
     };
     render() {
-        const { number, status, date } = this.props.parcel;
+        console.log(this.props.parcel);
+        const {
+            number,
+            status,
+            date,
+            cityRecipient,
+            citySender
+        } = this.props.parcel;
         const title = this.state.title;
         const color = this.state.color;
         const popover = {
@@ -50,20 +66,15 @@ class ParcelListItem extends Component {
                         value={this.state.title}
                         className="parcel__title"
                         onChange={this.handleTitleChange}
+                        onKeyDown={this.handleKeyDown}
+                        onBlur={this.props.editParcel.bind(
+                            this,
+                            number,
+                            'title',
+                            title
+                        )}
                     />
                     <div className="parcel__controls">
-                        <button
-                            title="Edit title"
-                            className="parcel__btn parcel__edit"
-                            onClick={this.props.editParcel.bind(
-                                this,
-                                number,
-                                'title',
-                                title
-                            )}
-                        >
-                            edit
-                        </button>
                         <button
                             className="parcel__btn"
                             onClick={this.handleClick}
@@ -96,6 +107,8 @@ class ParcelListItem extends Component {
                     </div>
                     <div className="parcel__status">
                         {date} : {status}
+                        <br />
+                        {cityRecipient} - {citySender}
                     </div>
                 </div>
             </li>
