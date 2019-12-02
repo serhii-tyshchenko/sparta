@@ -28,6 +28,11 @@ class SearchForm extends Component {
                     />
                     <button className="search__btn">Track</button>
                 </form>
+                <div style={{ flexBasis: '100%', textAlign: 'center' }}>
+                    <small>
+                        try 20450182437180, 20450123167687, 20450120333846
+                    </small>
+                </div>
             </div>
         );
     }
