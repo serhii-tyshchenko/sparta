@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/-React-Parcel-Tracker/static/css/main.abcaf36a.chunk.css",
-    "main.js": "/-React-Parcel-Tracker/static/js/main.fcf36506.chunk.js",
-    "main.js.map": "/-React-Parcel-Tracker/static/js/main.fcf36506.chunk.js.map",
+    "main.js": "/-React-Parcel-Tracker/static/js/main.27a81bea.chunk.js",
+    "main.js.map": "/-React-Parcel-Tracker/static/js/main.27a81bea.chunk.js.map",
     "runtime-main.js": "/-React-Parcel-Tracker/static/js/runtime-main.5a20d4ff.js",
     "runtime-main.js.map": "/-React-Parcel-Tracker/static/js/runtime-main.5a20d4ff.js.map",
     "static/js/2.fb52833a.chunk.js": "/-React-Parcel-Tracker/static/js/2.fb52833a.chunk.js",
     "static/js/2.fb52833a.chunk.js.map": "/-React-Parcel-Tracker/static/js/2.fb52833a.chunk.js.map",
     "index.html": "/-React-Parcel-Tracker/index.html",
-    "precache-manifest.0eea5f98f3874ff12cf2c8921f866f4d.js": "/-React-Parcel-Tracker/precache-manifest.0eea5f98f3874ff12cf2c8921f866f4d.js",
+    "precache-manifest.171f571d3d07e8a5afe39c16fcbb11e4.js": "/-React-Parcel-Tracker/precache-manifest.171f571d3d07e8a5afe39c16fcbb11e4.js",
     "service-worker.js": "/-React-Parcel-Tracker/service-worker.js",
     "static/css/main.abcaf36a.chunk.css.map": "/-React-Parcel-Tracker/static/css/main.abcaf36a.chunk.css.map"
   },
@@ -16,6 +16,6 @@
     "static/js/runtime-main.5a20d4ff.js",
     "static/js/2.fb52833a.chunk.js",
     "static/css/main.abcaf36a.chunk.css",
-    "static/js/main.fcf36506.chunk.js"
+    "static/js/main.27a81bea.chunk.js"
   ]
 }
