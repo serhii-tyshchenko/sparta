@@ -1,0 +1,100 @@
+import React, { Component } from 'react';
+import { GithubPicker } from 'react-color';
+export class ParcelListItem extends Component {
+    state = {
+        title: this.props.parcel.title || 'unknown',
+        color: this.props.parcel.color || '#fff',
+        displayColorPicker: false
+    };
+    handleTitleChange = e => {
+        this.setState({ title: e.target.value });
+    };
+    handleKeyDown = e => {
+        if (e.key === 'Enter') {
+            this.props.editParcel(
+                this.props.parcel.number,
+                'title',
+                e.target.value
+            );
+        }
+    };
+    handleColorChange = color => {
+        const newColor = Object.values(color.hex).join('');
+        const number = this.props.parcel.number;
+        this.setState({ color: newColor });
+        this.props.editParcel(number, 'color', newColor);
+    };
+    handleClick = () => {
+        this.setState({ displayColorPicker: !this.state.displayColorPicker });
+    };
+
+    handleClose = () => {
+        this.setState({ displayColorPicker: false });
+    };
+    render() {
+        const {
+            number,
+            status,
+            date,
+            cityRecipient,
+            citySender
+        } = this.props.parcel;
+        const title = this.state.title;
+        const color = this.state.color;
+
+        return (
+            <li
+                className="parcels__item parcel"
+                style={{ backgroundColor: color }}
+            >
+                <div className="parcel__header">
+                    <input
+                        type="text"
+                        value={this.state.title}
+                        className="parcel__title"
+                        onChange={this.handleTitleChange}
+                        onKeyDown={this.handleKeyDown}
+                        onBlur={this.props.editParcel.bind(
+                            this,
+                            number,
+                            'title',
+                            title
+                        )}
+                    />
+                    <div className="parcel__controls">
+                        <button
+                            className="parcel__btn"
+                            onClick={this.handleClick}
+                        >
+                            color
+                            {this.state.displayColorPicker ? (
+                                <GithubPicker
+                                    color={this.state.color}
+                                    onChange={this.handleColorChange}
+                                />
+                            ) : null}
+                        </button>
+
+                        <button
+                            onClick={this.props.removeParcel.bind(this, number)}
+                            title="Remove parcel"
+                            className="parcel__btn parcel__remove"
+                        >
+                            remove
+                        </button>
+                    </div>
+                </div>
+                <div className="parcel__details">
+                    <h3 className="parcel__number">{number}</h3>
+                    <div className="parcel__status">
+                        {date}
+                        <br />
+                        {status}
+                        <br />
+                        {citySender} - {cityRecipient}
+                    </div>
+                </div>
+            </li>
+        );
+    }
+}

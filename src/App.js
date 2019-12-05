@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
-import Header from './components/Header';
-import Footer from './components/Footer';
+import { Header } from './components/Header';
+import { Footer } from './components/Footer';
 import SearchForm from './components/SearchForm';
-import ParcelList from './components/ParcelList';
+import { ParcelList } from './components/ParcelList';
 
 import * as db from '../src/services/db';
 import getDatafromAPI from '../src/services/api';
