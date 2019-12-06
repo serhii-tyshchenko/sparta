@@ -63,10 +63,10 @@ export class ParcelListItem extends Component {
                     />
                     <div className="parcel__controls">
                         <button
-                            className="parcel__btn"
+                            className="parcel__btn icon-color-adjust"
                             onClick={this.handleClick}
+                            title="Change parcel color"
                         >
-                            color
                             {this.state.displayColorPicker ? (
                                 <GithubPicker
                                     color={this.state.color}
@@ -74,25 +74,28 @@ export class ParcelListItem extends Component {
                                 />
                             ) : null}
                         </button>
-
+                        <button
+                            onClick={this.props.getParcelStatus.bind(
+                                this,
+                                number
+                            )}
+                            title="Update parcel status"
+                            className="parcel__btn parcel__update icon-arrows-cw"
+                        ></button>
                         <button
                             onClick={this.props.removeParcel.bind(this, number)}
                             title="Remove parcel"
-                            className="parcel__btn parcel__remove"
-                        >
-                            remove
-                        </button>
+                            className="parcel__btn parcel__remove icon-trash-empty"
+                        ></button>
                     </div>
                 </div>
                 <div className="parcel__details">
                     <h3 className="parcel__number">{number}</h3>
-                    <div className="parcel__status">
-                        {date}
-                        <br />
-                        {status}
-                        <br />
+                    <div className="parcel__route icon-location">
                         {citySender} - {cityRecipient}
                     </div>
+                    <div className="parcel__date icon-calendar">{date}</div>
+                    <div className="parcel__status">{status}</div>
                 </div>
             </li>
         );

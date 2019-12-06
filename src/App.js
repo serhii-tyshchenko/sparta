@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import SearchForm from './components/SearchForm';
@@ -7,6 +6,8 @@ import { ParcelList } from './components/ParcelList';
 
 import * as db from '../src/services/db';
 import getDatafromAPI from '../src/services/api';
+
+import './fontello/css/fontello.css';
 
 class App extends Component {
     state = {
@@ -21,11 +22,10 @@ class App extends Component {
         db.saveStateToDB(this.state);
     }
 
+    numberExists = (array, number) => array.some(el => el.number === number);
+
     addParcel = number => {
-        if (
-            this.state.parcels.filter(parcel => parcel.number === number)
-                .length > 0
-        ) {
+        if (this.numberExists(this.state.parcels, number)) {
             alert('Parcel already added!');
             return;
         }
@@ -60,15 +60,18 @@ class App extends Component {
         });
     };
 
-    // getParcelStatus = number => {
-    //     this.getData(number)
-    //         .then(response => {
-    //             this.setState({
-    //                 responseText: this.formatResponse(response)
-    //             });
-    //         })
-    //         .catch(error => console.log(error));
-    // };
+    getParcelStatus = number => {
+        getDatafromAPI(number).then(response => {
+            this.setState({
+                parcels: this.state.parcels.map(parcel => {
+                    if (parcel.number === number) {
+                        parcel.status = response.status;
+                    }
+                    return parcel;
+                })
+            });
+        });
+    };
 
     render() {
         return (

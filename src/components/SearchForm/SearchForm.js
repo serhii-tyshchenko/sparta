@@ -9,11 +9,9 @@ class SearchForm extends Component {
         this.setState({ query: e.target.value });
     };
 
-    validateInput = () => this.state.query.length > 14;
-
     handleSubmit = e => {
         e.preventDefault();
-        if (this.validateInput === true) {
+        if (this.state.query !== '') {
             this.props.addParcel(this.state.query);
             this.setState({ query: '' });
         } else {

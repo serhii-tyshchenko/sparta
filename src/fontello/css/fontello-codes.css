@@ -1,0 +1,8 @@
+
+.icon-location:before { content: '\e800'; } /* '' */
+.icon-calendar:before { content: '\e801'; } /* '' */
+.icon-arrows-cw:before { content: '\e802'; } /* '' */
+.icon-trash-empty:before { content: '\e803'; } /* '' */
+.icon-color-adjust:before { content: '\f020'; } /* '' */
+.icon-filter:before { content: '\f0b0'; } /* '' */
+.icon-attention-alt:before { content: '\f12a'; } /* '' */

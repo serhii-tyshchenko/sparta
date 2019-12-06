@@ -27,7 +27,8 @@ const getData = number => {
                 ]
             }
         })
-        .then(response => formatData(response));
+        .then(response => formatData(response))
+        .catch(error => console.log(error));
 };
 
 export default getData;
