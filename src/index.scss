@@ -103,11 +103,16 @@ main {
         background-color: rgba(0, 0, 0, 0.1);
     }
     &__controls {
-        position: relative;
         display: flex;
         align-items: center;
+        .github-picker {
+            position: absolute !important;
+            top: 150%;
+            right: 0;
+        }
     }
     &__btn {
+        position: relative;
         padding: 0 0.5em;
         font-weight: bold;
         border: none;

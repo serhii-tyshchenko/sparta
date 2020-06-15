@@ -6,10 +6,10 @@ export class ParcelListItem extends Component {
         color: this.props.parcel.color || '#fff',
         displayColorPicker: false
     };
-    handleTitleChange = e => {
+    handleTitleChange = (e) => {
         this.setState({ title: e.target.value });
     };
-    handleKeyDown = e => {
+    handleKeyDown = (e) => {
         if (e.key === 'Enter') {
             this.props.editParcel(
                 this.props.parcel.number,
@@ -18,7 +18,7 @@ export class ParcelListItem extends Component {
             );
         }
     };
-    handleColorChange = color => {
+    handleColorChange = (color) => {
         const newColor = Object.values(color.hex).join('');
         const number = this.props.parcel.number;
         this.setState({ color: newColor });
@@ -71,6 +71,7 @@ export class ParcelListItem extends Component {
                                 <GithubPicker
                                     color={this.state.color}
                                     onChange={this.handleColorChange}
+                                    triangle="top-right"
                                 />
                             ) : null}
                         </button>
@@ -91,9 +92,11 @@ export class ParcelListItem extends Component {
                 </div>
                 <div className="parcel__details">
                     <h3 className="parcel__number">{number}</h3>
-                    <div className="parcel__route icon-location">
-                        {citySender} - {cityRecipient}
-                    </div>
+                    {citySender ? (
+                        <div className="parcel__route icon-location">
+                            {citySender} - {cityRecipient}
+                        </div>
+                    ) : null}
                     <div className="parcel__date icon-calendar">{date}</div>
                     <div className="parcel__status">{status}</div>
                 </div>
