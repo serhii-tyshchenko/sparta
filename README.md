@@ -1,6 +1,6 @@
-# SPARTA (Simple Parcel Tracking App)
+# SSimple Parcel Tracking App
 
-Live demo: https://serhii-tyshchenko.github.io/-React-Parcel-Tracker/
+Live demo: https://serhii-tyshchenko.github.io/Parcel-Tracker/
 
 ## Features:
 - Add parcel / Edit parcel's title / Change parcel's color / Remove parcel
