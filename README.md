@@ -1,4 +1,4 @@
-# SSimple Parcel Tracking App
+# Simple Parcel Tracking App
 
 Live demo: https://serhii-tyshchenko.github.io/Parcel-Tracker/
 
