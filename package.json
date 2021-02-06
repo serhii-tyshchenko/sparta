@@ -1,10 +1,10 @@
 {
   "name": "parcel-tracker",
-  "homepage": "https://serhii-tyshchenko.github.io/Parcel-Tracker/",
+  "homepage": "https://serhii-tyshchenko.github.io/sparta/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "node-sass": "latest",
+    "node-sass": "^4.14.1",
     "react": "latest",
     "react-color": "latest",
     "react-dom": "latest",
